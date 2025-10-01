@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aristoi Atelier | 轻奢老钱风男装</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-green: #062522;
+      --forest: #0d3b36;
+      --dark-gold: #c8a35f;
+      --light-gold: rgba(200, 163, 95, 0.55);
+      --ivory: #f4efe6;
+      --charcoal: #202224;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--deep-green);
+      color: var(--ivory);
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(120deg, rgba(13, 59, 54, 0.92) 0%, rgba(6, 37, 34, 0.95) 45%, rgba(32, 34, 36, 0.9) 100%);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--light-gold);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.35rem;
+      text-transform: uppercase;
+      color: var(--dark-gold);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--ivory);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0;
+      background: var(--dark-gold);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      align-items: center;
+      background: radial-gradient(circle at 20% 20%, rgba(200, 163, 95, 0.18), transparent 50%),
+        linear-gradient(110deg, rgba(32, 34, 36, 0.2), rgba(6, 37, 34, 0.8));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 0 auto;
+      max-width: var(--max-width);
+      padding: 6rem 1.5rem 5rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.45rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--dark-gold);
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 32rem;
+      color: rgba(244, 239, 230, 0.85);
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      border: 1px solid var(--dark-gold);
+      color: var(--ivory);
+      padding: 0.9rem 2.4rem;
+      text-decoration: none;
+      letter-spacing: 0.18rem;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .btn.primary {
+      background: var(--dark-gold);
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    .btn.secondary:hover,
+    .btn.primary:hover {
+      background: transparent;
+      color: var(--ivory);
+      box-shadow: 0 0 18px rgba(200, 163, 95, 0.3);
+    }
+
+    .hero-figure {
+      position: relative;
+      min-height: 360px;
+      border: 1px solid rgba(200, 163, 95, 0.25);
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .hero-figure::before {
+      content: "";
+      position: absolute;
+      inset: 12% 8%;
+      border: 1px solid rgba(200, 163, 95, 0.4);
+    }
+
+    .hero-figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(25%);
+    }
+
+    .section {
+      border-top: 1px solid rgba(200, 163, 95, 0.2);
+      padding: 5rem 1.5rem;
+    }
+
+    .section:nth-of-type(even) {
+      background: rgba(6, 37, 34, 0.4);
+    }
+
+    .section-content {
+      margin: 0 auto;
+      max-width: var(--max-width);
+      display: grid;
+      gap: 3rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .section-header h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      letter-spacing: 0.08rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      color: rgba(244, 239, 230, 0.75);
+    }
+
+    .highlights {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .highlight-card {
+      background: rgba(32, 34, 36, 0.45);
+      border: 1px solid rgba(200, 163, 95, 0.25);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card::before {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(200, 163, 95, 0.18);
+      pointer-events: none;
+    }
+
+    .highlight-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gold);
+    }
+
+    .highlight-card p {
+      color: rgba(244, 239, 230, 0.8);
+      font-size: 0.95rem;
+    }
+
+    .collection-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .collection-item {
+      position: relative;
+      border: 1px solid rgba(200, 163, 95, 0.2);
+      overflow: hidden;
+    }
+
+    .collection-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: saturate(80%);
+    }
+
+    .collection-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .collection-item span {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1.4rem;
+      background: linear-gradient(180deg, transparent, rgba(6, 37, 34, 0.95));
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.15rem;
+      font-size: 1.1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      border-left: 2px solid rgba(200, 163, 95, 0.35);
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--dark-gold);
+    }
+
+    .timeline-item h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark-gold);
+    }
+
+    .timeline-item p {
+      color: rgba(244, 239, 230, 0.75);
+    }
+
+    .testimonials {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .testimonial {
+      background: rgba(32, 34, 36, 0.5);
+      border: 1px solid rgba(200, 163, 95, 0.2);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-family: "Cormorant Garamond", serif;
+      font-size: 4rem;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      color: rgba(200, 163, 95, 0.25);
+    }
+
+    .testimonial p {
+      color: rgba(244, 239, 230, 0.85);
+      font-style: italic;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+      color: var(--dark-gold);
+    }
+
+    .membership {
+      border: 1px solid rgba(200, 163, 95, 0.3);
+      padding: 3rem;
+      background: linear-gradient(120deg, rgba(13, 59, 54, 0.6), rgba(32, 34, 36, 0.65));
+      text-align: center;
+    }
+
+    .membership h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gold);
+    }
+
+    .membership p {
+      color: rgba(244, 239, 230, 0.75);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      background: #050d0c;
+      border-top: 1px solid rgba(200, 163, 95, 0.25);
+      padding: 3rem 1.5rem;
+      color: rgba(244, 239, 230, 0.65);
+    }
+
+    footer .footer-content {
+      display: grid;
+      gap: 2rem;
+      margin: 0 auto;
+      max-width: var(--max-width);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    footer h4 {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.12rem;
+      color: var(--dark-gold);
+      margin-bottom: 1rem;
+    }
+
+    footer a {
+      color: rgba(244, 239, 230, 0.65);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      letter-spacing: 0.2rem;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .hero-figure {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">ARISTOI ATELIER</div>
+      <nav>
+        <ul>
+          <li><a href="#collections">典藏系列</a></li>
+          <li><a href="#craft">匠心工艺</a></li>
+          <li><a href="#lookbook">绅士造型</a></li>
+          <li><a href="#salon">私享会</a></li>
+          <li><a href="#contact">尊享联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">轻奢 · 老钱风 · 男士定制</span>
+      <h1>传承贵族风范的高定男装殿堂</h1>
+      <p>
+        Aristoi Atelier 以英伦贵族气质为灵感，融合现代商务与社交场合需求，打造专属绅士衣橱。每一件单品均由大师级工坊手工缝制，只为塑造沉稳、优雅又充满力量的男士形象。
+      </p>
+      <div class="cta-group">
+        <a class="btn primary" href="#membership">预约专属造型师</a>
+        <a class="btn secondary" href="#collections">探索男士系列</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80" alt="老钱风男装大片" />
+    </figure>
+  </section>
+
+  <section id="collections" class="section">
+    <div class="section-content">
+      <div class="section-header">
+        <h2>典藏系列</h2>
+        <p>以英国萨维尔街精神为蓝本，呈现六大经典主题系列，满足商务、社交、度假与私人定制需求。</p>
+      </div>
+      <div class="collection-grid">
+        <div class="collection-item">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="王者礼服" />
+          <span>王者礼服 · Gala Collection</span>
+        </div>
+        <div class="collection-item">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80" alt="行政套装" />
+          <span>行政套装 · Executive Tailor</span>
+        </div>
+        <div class="collection-item">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80" alt="休闲度假" />
+          <span>休闲度假 · Riviera Leisure</span>
+        </div>
+        <div class="collection-item">
+          <img src="https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&w=800&q=80" alt="皇家猎场" />
+          <span>皇家猎场 · Heritage Sporting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="craft" class="section">
+    <div class="section-content">
+      <div class="section-header">
+        <h2>百年匠心工艺</h2>
+        <p>精选意大利与英国顶级面料供应商，配以70小时手工缝制流程，让每件成衣宛如传世艺术。</p>
+      </div>
+      <div class="highlights">
+        <article class="highlight-card">
+          <h3>大师量体</h3>
+          <p>资深裁缝采用黄金比例定制体系，基于客户身形与生活习惯，打造毫厘不差的个性版型。</p>
+        </article>
+        <article class="highlight-card">
+          <h3>珍稀面料</h3>
+          <p>甄选 Loro Piana、Scabal 等全球奢侈面料品牌，与阿尔卑斯山羊绒、澳洲顶级美利奴羊毛。</p>
+        </article>
+        <article class="highlight-card">
+          <h3>皇家细节</h3>
+          <p>贵金属纽扣、手工锁眼、手绘衬里图案，细节处融入徽章、纹章与定制刺绣，展现尊崇身份。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="lookbook" class="section">
+    <div class="section-content">
+      <div class="section-header">
+        <h2>绅士造型志</h2>
+        <p>每一季推出「绅士造型志」，以不同生活场景诠释老钱风格的优雅与力量，提供全方位穿搭灵感。</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>伦敦俱乐部之夜</h3>
+          <p>天鹅绒晚礼服搭配镀金袖扣与丝绸领结，致敬英国绅士私享俱乐部的秘密晚宴。</p>
+        </div>
+        <div class="timeline-item">
+          <h3>阿尔卑斯猎场周末</h3>
+          <p>粗花呢大衣与骑士靴构筑秋冬户外层次，融合狩猎文化与度假轻奢风尚。</p>
+        </div>
+        <div class="timeline-item">
+          <h3>蔚蓝海岸论坛</h3>
+          <p>亚麻西装与船长衬衫勾勒轻盈轮廓，适配游艇派对与高端商业峰会。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="salon" class="section">
+    <div class="section-content">
+      <div class="section-header">
+        <h2>私享会 · Aristoi Society</h2>
+        <p>围绕全球精英社交圈打造的私密会员社区，凝聚领袖企业家、文化名流与贵族后裔。</p>
+      </div>
+      <div class="testimonials">
+        <article class="testimonial">
+          <p>“Aristoi Atelier 的定制体验令我重拾家族风范，从量体到成衣交付，一切皆是仪式。”</p>
+          <span>—— Alexei S., 投资家</span>
+        </article>
+        <article class="testimonial">
+          <p>“品牌私享沙龙让我结识世界各地的同行与艺术家，共享轻奢生活品位。”</p>
+          <span>—— Laurent D., 酒庄继承人</span>
+        </article>
+        <article class="testimonial">
+          <p>“会员专属旅行礼遇与衣橱管家服务，真正让老钱风成为生活方式。”</p>
+          <span>—— Ethan W., 科技创始人</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="membership" class="section">
+    <div class="section-content">
+      <div class="membership">
+        <h3>贵宾身份 · The Privilege Circle</h3>
+        <p>
+          申请 Aristoi Privilege Circle，尊享年度衣橱策划、全球礼宾旅程、私人沙龙邀请与传世定制礼遇。
+        </p>
+        <a class="btn primary" href="#contact">提交贵宾申请</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-content">
+      <div class="section-header">
+        <h2>尊享联系</h2>
+        <p>专属顾问将于 24 小时内与您联络，安排门店体验或上门量体服务。</p>
+      </div>
+      <div class="highlights">
+        <article class="highlight-card">
+          <h3>旗舰沙龙</h3>
+          <p>中国 · 上海外滩 18 号贵宾楼层<br />英国 · 伦敦梅菲尔区 12 号会所</p>
+        </article>
+        <article class="highlight-card">
+          <h3>礼宾热线</h3>
+          <p>中国大陆：400-188-1890<br />国际专线：+44 (0)20 1234 5678</p>
+        </article>
+        <article class="highlight-card">
+          <h3>尊享信箱</h3>
+          <p>concierge@aristoiatelier.com<br />appointments@aristoiatelier.com</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Aristoi Atelier</h4>
+        <p>承袭贵族礼仪与现代美学的高定男装世家，打造极致尊贵的私人衣橱体验。</p>
+      </div>
+      <div>
+        <h4>全球沙龙</h4>
+        <a href="#">上海 · 外滩尊享厅</a>
+        <a href="#">伦敦 · 梅菲尔会所</a>
+        <a href="#">巴黎 · 香榭丽舍公馆</a>
+        <a href="#">迪拜 · Jumeirah Sky Loft</a>
+      </div>
+      <div>
+        <h4>私人服务</h4>
+        <a href="#">贵宾衣橱管家</a>
+        <a href="#">私人造型行程</a>
+        <a href="#">家族徽章定制</a>
+        <a href="#">贵宾旅行策划</a>
+      </div>
+      <div>
+        <h4>社交媒体</h4>
+        <a href="#">WeChat | Aristoi Atelier</a>
+        <a href="#">Instagram | @aristoi.atelier</a>
+        <a href="#">Little Red Book | Aristoi Atelier</a>
+      </div>
+    </div>
+    <small>© 2024 Aristoi Atelier. Crafted for the Modern Aristocrat.</small>
+  </footer>
+</body>
+</html>
